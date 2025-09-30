@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 // Listar categorías (simple)
 router.get("/", async (_req, res) => {
   try {
-    const categories = await Category.find().select("_id name slug");
+    const categories = await Category.find();
     return res.status(200).send({ message: "Todas las categorías", categories });
   } catch (error) {
     return res.status(500).send({ message: "Hubo un error", error });
@@ -38,7 +38,6 @@ router.get("/:key/products", async (req, res) => {
  
     const products = await (await import("../models/products.js")).default
       .find({ categories: category._id })
-      .select("_id name categories")
       .populate("categories", "name slug");
  
     return res.status(200).send({
