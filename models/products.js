@@ -8,6 +8,7 @@ const productSchema = new Schema({
   format: { type: String },
   price: { type: Number },
   tags: [{ type: String }],
+  // licenses: [{ }],
   fileUrl: { type: String },
   imageUrl: { type: String },
 });
