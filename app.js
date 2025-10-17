@@ -40,7 +40,7 @@ app.use(
 app.use("/", indexRoutes);
 app.use("/products", productsRoutes);
 app.use("/categories", categoriesRoutes);
-app.use("/order", ordersRouter );
+app.use("/orders", ordersRouter );
 
 /* Error handler  */
 // catch 404 and forward to error handler

@@ -7,9 +7,11 @@ const ProductSchema = new mongoose.Schema({
 });
 
 const UserSchema = new mongoose.Schema({
-  username: { type: String, required: true },
-  company: { type: String, required: true },
+  nombre: { type: String, required: true },
+  apellido: { type: String, required: true },
   email: { type: String, required: true },
+  dni: { type: Number, required: true },
+  telefono: { type: Number, required: true },
 });
 
 const OrderSchema = new mongoose.Schema(
