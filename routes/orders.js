@@ -2,6 +2,14 @@ import express from "express";
 const router = express.Router();
 import Order from "../models/order.js";
 
+const findAllOrders = async (req, res) => {
+  try {
+    const orders = await Order.find();
+    return res.status(200).send({ message: "todos los pedidos", orders });
+  } catch (error) {
+    return res.status(501).send({ message: "error al obtener los pedidos" });
+  }
+};
 const addOrder = async (req, res) => {
   try {
     const order = new Order(req.body);
@@ -12,5 +20,7 @@ const addOrder = async (req, res) => {
   }
 };
 
+
 router.post("/", addOrder);
+router.get("/", findAllOrders);
 export default router;
